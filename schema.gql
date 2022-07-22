@@ -1,0 +1,54 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Subtask {
+  _id: String!
+  name: String
+  comments: [String!]!
+}
+
+type Task {
+  _id: String!
+  name: String!
+  status: String!
+  subtasks: [Subtask!]!
+  comments: [String!]!
+}
+
+type Query {
+  tasks: [Task!]!
+  task(taskId: String!): Task!
+  taskByStatus(status: String!): [Task!]!
+}
+
+type Mutation {
+  createTask(createTaskInput: CreateTaskInput!): Task!
+  updateTask(updateTaskInput: UpdateTaskInput!): Task!
+  removeTask(taskId: String!): String!
+  addSubtask(subtask: SubtaskInput!, taskId: String!): Task
+  addCommentToTask(comment: String!, taskId: String!): Task
+  addCommentToSubtask(comment: String!, subtaskId: String!): Subtask
+}
+
+input CreateTaskInput {
+  name: String!
+  status: String!
+}
+
+input UpdateTaskInput {
+  """Task Name"""
+  name: String!
+
+  """Task Status"""
+  status: String!
+  id: String!
+}
+
+input SubtaskInput {
+  """Subtask Name"""
+  name: String
+
+  """Subtask Comments"""
+  comments: [String!] = []
+}

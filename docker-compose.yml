@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  # mongo MONGO_NAME -u MONGO_USER -p MONGO_PASSWORD
+
+
+  mongodb:
+    hostname: mongodb
+    container_name: mongodb
+    image: "mongo:4.0"
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "root"
+      MONGO_NAME: "taskdb"
+      MONGO_USER: "username"
+      MONGO_PASS: "password"
+      MONGO_AUTH: "SCRAM-SHA-256"
+    volumes:
+      - "./mongodb:/docker-entrypoint-initdb.d"
+
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=wt-mongo
+    #   - MONGO_INITDB_ROOT_PASSWORD=wt-pass
+
+
+volumes:
+  mongodb_volume:
