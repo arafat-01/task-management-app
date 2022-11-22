@@ -1,7 +1,3 @@
-<p align="center">
-  <a href="https://haveignition.com/" target="blank"><img src="https://i.imgur.com/PJ85ypA.png" width="320" alt="Ignition Logo" /></a>
-</p>
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript backend assignment starter repository.
